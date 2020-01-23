@@ -21,6 +21,16 @@ ImageDocView::ImageDocView(QWidget *parent, const QString &filename) :
     ui->scrollArea->setWidget(label);
 }
 
+QSize ImageDocView::getImageSize() const
+{
+   if (ui->scrollArea) {
+       return ui->scrollArea->widget()->size();
+   } else {
+       return QSize();
+   }
+}
+
+
 ImageDocView::~ImageDocView()
 {
     delete ui;

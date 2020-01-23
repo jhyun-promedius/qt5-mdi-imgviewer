@@ -19,6 +19,8 @@ public:
         return this->filename;
     }
 
+    QSize getImageSize() const;
+
 private:
     Ui::ImageDocView *ui;
 

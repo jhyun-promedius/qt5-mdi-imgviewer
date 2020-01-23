@@ -47,6 +47,11 @@ void MainWindow::on_mdiArea_subWindowActivated(QMdiSubWindow *mdiSubWindow)
     if (!mdiSubWindow) return;
     auto imageDocView = qobject_cast<ImageDocView *>(mdiSubWindow->widget());
     if (imageDocView) {
-        this->statusBar()->showMessage(QString("Selected: %1").arg(imageDocView->getFilename()));
+        auto filename = imageDocView->getFilename();
+        auto imageSize = imageDocView->getImageSize();
+        this->statusBar()->showMessage(QString("Selected: %1 (%2 x %3)")
+                                       .arg(filename)
+                                       .arg(imageSize.width()).arg(imageSize.height())
+                                       );
     }
 }
