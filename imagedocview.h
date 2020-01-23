@@ -1,13 +1,13 @@
 #ifndef IMAGEDOCVIEW_H
 #define IMAGEDOCVIEW_H
 
-#include <QMdiSubWindow>
+#include <QWidget>
 
 namespace Ui {
 class ImageDocView;
 }
 
-class ImageDocView : public QMdiSubWindow
+class ImageDocView : public QWidget
 {
     Q_OBJECT
 

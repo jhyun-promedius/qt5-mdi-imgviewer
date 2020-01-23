@@ -35,14 +35,17 @@ void MainWindow::on_action_Open_triggered()
         return; // Cancelled, Do nothing.
     }
     //
+    ui->mdiArea->hide();
     auto imageDocView = new ImageDocView(ui->mdiArea, filename);
-    imageDocView->setAttribute(Qt::WA_DeleteOnClose);
-    imageDocView->show();
+    QMdiSubWindow *window = ui->mdiArea->addSubWindow(imageDocView);
+    window->setAttribute(Qt::WA_DeleteOnClose);
+    ui->mdiArea->show();
 }
 
 void MainWindow::on_mdiArea_subWindowActivated(QMdiSubWindow *mdiSubWindow)
 {
-    auto imageDocView = qobject_cast<ImageDocView *>(mdiSubWindow);
+    if (!mdiSubWindow) return;
+    auto imageDocView = qobject_cast<ImageDocView *>(mdiSubWindow->widget());
     if (imageDocView) {
         this->statusBar()->showMessage(QString("Selected: %1").arg(imageDocView->getFilename()));
     }
