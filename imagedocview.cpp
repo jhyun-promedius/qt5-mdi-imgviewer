@@ -1,7 +1,9 @@
 #include "imagedocview.h"
 #include "ui_imagedocview.h"
 
-#include <QScrollArea>
+#include <QLabel>
+#include <QPicture>
+#include <QPixmap>
 
 ImageDocView::ImageDocView(QWidget *parent, const QString &filename) :
     QWidget(parent),
@@ -10,9 +12,13 @@ ImageDocView::ImageDocView(QWidget *parent, const QString &filename) :
 {
     ui->setupUi(this);
     this->setWindowTitle(filename);
-    //
-    auto scrollArea = new QScrollArea(this);
-    ui->gridLayout->addWidget(scrollArea);
+
+    QImage image(filename);
+    auto label = new QLabel(ui->scrollArea);
+
+    label->setPixmap(QPixmap::fromImage(image));
+
+    ui->scrollArea->setWidget(label);
 }
 
 ImageDocView::~ImageDocView()
