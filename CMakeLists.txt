@@ -32,6 +32,9 @@ if(ANDROID)
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    imagedocview.cpp
+    imagedocview.h
+    imagedocview.ui
   )
 else()
   add_executable(qt5-mdi-imgviewer
@@ -39,6 +42,9 @@ else()
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
+    imagedocview.cpp
+    imagedocview.h
+    imagedocview.ui
   )
 endif()
 

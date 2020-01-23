@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMdiSubWindow>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,6 +20,8 @@ private slots:
     void on_action_Quit_triggered();
 
     void on_action_Open_triggered();
+
+    void on_mdiArea_subWindowActivated(QMdiSubWindow *);
 
 private:
     Ui::MainWindow *ui;
