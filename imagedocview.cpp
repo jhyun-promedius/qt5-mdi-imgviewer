@@ -17,6 +17,7 @@ ImageDocView::ImageDocView(QWidget *parent, const QString &filename) :
     auto label = new QLabel(ui->scrollArea);
 
     label->setPixmap(QPixmap::fromImage(image));
+    label->setMaximumSize(image.size());
 
     ui->scrollArea->setWidget(label);
 }
